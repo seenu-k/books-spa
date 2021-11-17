@@ -1,0 +1,41 @@
+.fit-space {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.fit-toolbar {
+    height: calc(100% - 64px);
+}
+
+.json-viewer {
+    height: 100%;
+    width: 100%;
+    margin-left: 60px;
+}
+
+::ng-deep .ngx-json-viewer {
+    overflow: auto !important;
+}
+
+.json-editor {
+    width: 100%;
+}
+
+.radio-button {
+    margin: 10px;
+}
+
+:host ::ng-deep json-editor,
+:host ::ng-deep json-editor .jsoneditor,
+:host ::ng-deep json-editor > div,
+:host ::ng-deep json-editor jsoneditor-outer {
+  height: 300px;
+}
+
+.base-url {
+    width: 400px;
+}
