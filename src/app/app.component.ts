@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { JsonEditorComponent, JsonEditorOptions } from 'ang-jsoneditor';
@@ -45,7 +46,9 @@ export class AppComponent implements OnInit {
   constructor(
     private dataService: DataService,
     private _snackBar: MatSnackBar,
+    private titleService: Title,
   ) {
+    this.titleService.setTitle(this.title);
     this.editorOptions = new JsonEditorOptions();
     this.editorOptions.mode = 'code';
     this.editorOptions.mainMenuBar = false;
