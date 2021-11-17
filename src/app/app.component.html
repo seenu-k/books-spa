@@ -74,7 +74,10 @@
   <mat-grid-tile>
     <mat-grid-list cols="1" rowHeight="fit" class="fit-space">
       <mat-grid-tile>
-        <h1>Response</h1>
+        <div class="response-title">
+          <h1>Response</h1>
+          <button mat-stroked-button color="accent" (click)="copyToInternal()" *ngIf="apiType.value=='external'">Copy to Internal POST</button>
+        </div>
       </mat-grid-tile>
       <mat-grid-tile rowspan="4">
         <div class="json-viewer" *ngIf="!spinner">

@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
 
   title = 'REST API Development using Django | Frontend SPA | ED17B015';
   baseURL = new FormControl('https://booksed17b015.herokuapp.com/api/');
-  responseData = {};
+  responseData: any = {};
   externalBookName = new FormControl('A Game Of Thrones')
   apiType = new FormControl('external');
   externalRequestType = new FormControl('GET');
@@ -60,6 +60,20 @@ export class AppComponent implements OnInit {
     this.baseURL.valueChanges.subscribe(url => {
       this.dataService.setBaseURL(url);
     });
+    this.apiType.valueChanges.subscribe(() => {
+      this.responseData = {};
+    });
+  }
+
+  copyToInternal() {
+    if(('data' in this.responseData) && (this.responseData['data'].length > 0)) {
+      this.inputObject = this.responseData['data'][0];
+      this.apiType.setValue('internal');
+      this.internalRequestType.setValue('POST');
+    }
+    else {
+      this._snackBar.open("No Data to Copy!", "Close", {duration: 5000});
+    }
   }
   
   assignResponseData(data: object) {
